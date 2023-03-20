@@ -34,6 +34,14 @@ spec:
               image: busybox
               command: ['/bin/sh', '-c']
               args: ['sleep 10']
+            - name: wait-for-atlantis
+              image: busybox
+              command:
+                [
+                  'sh',
+                  '-c',
+                  'until nc -z atlantis.atlantis.svc.cluster.local 80 > /dev/null; do echo Waiting for atlantis to be ready; sleep 2; done;',
+                ]
           containers:
             # Update upstream webhook with new ngrok tunnel information
             - name: ngrok-sync
