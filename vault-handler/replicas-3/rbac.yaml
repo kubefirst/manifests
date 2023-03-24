@@ -1,0 +1,30 @@
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: vault-handler
+  namespace: vault
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: vault-handler
+  namespace: vault
+rules:
+  - apiGroups: ['']
+    resources: ['configmaps', 'secrets', 'pods']
+    verbs:
+      ['get', 'watch', 'list', 'create', 'apply', 'patch', 'delete', 'update']
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: vault-handler
+  namespace: vault
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: vault-handler
+subjects:
+  - kind: ServiceAccount
+    name: vault-handler
