@@ -1,0 +1,15 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: vault-handler
+  namespace: vault
+spec:
+  template:
+    spec:
+      serviceAccountName: vault-handler
+      containers:
+        - name: vault-handler
+          image: kubefirst/vault-handler
+          imagePullPolicy: Always
+          args: ['unseal']
+      restartPolicy: OnFailure
