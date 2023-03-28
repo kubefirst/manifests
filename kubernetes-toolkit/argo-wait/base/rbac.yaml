@@ -1,0 +1,27 @@
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: kubernetes-toolkit
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: kubernetes-toolkit
+rules:
+  - apiGroups: ['']
+    resources: ['configmaps', 'secrets', 'pods', 'deployments', 'statefulsets']
+    verbs:
+      ['get', 'watch', 'list', 'create', 'apply', 'patch', 'delete', 'update']
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: kubernetes-toolkit
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: kubernetes-toolkit
+subjects:
+  - kind: ServiceAccount
+    name: kubernetes-toolkit

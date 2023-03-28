@@ -1,0 +1,13 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: kubernetes-toolkit
+spec:
+  template:
+    spec:
+      serviceAccountName: kubernetes-toolkit
+      containers:
+        - name: kubernetes-toolkit
+          image: kubefirst/kubernetes-toolkit
+          imagePullPolicy: Always
+      restartPolicy: OnFailure
