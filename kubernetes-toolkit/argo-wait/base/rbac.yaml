@@ -9,10 +9,9 @@ kind: Role
 metadata:
   name: kubernetes-toolkit
 rules:
-  - apiGroups: ['']
-    resources: ['configmaps', 'secrets', 'pods', 'deployments', 'statefulsets']
-    verbs:
-      ['get', 'watch', 'list', 'create', 'apply', 'patch', 'delete', 'update']
+  - apiGroups: ['apps']
+    resources: ['deployments', 'statefulsets']
+    verbs: ['get', 'watch', 'list']
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
