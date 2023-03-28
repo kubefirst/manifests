@@ -24,4 +24,4 @@ spec:
   tls:
   - hosts:
     - mgmt.kubefirst.com
-    secretName: kubefirst-root-tls
+    secretName: kubefirst-apex-tls
