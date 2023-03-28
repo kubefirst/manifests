@@ -7,12 +7,12 @@ metadata:
     app.kubernetes.io/name: nginx
     app.kubernetes.io/instance: nginx
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   sessionAffinity: None
+  selector:
+    app.kubernetes.io/name: nginx
+    app.kubernetes.io/instance: nginx
   ports:
     - name: http
       port: 80
       targetPort: http
-  selector:
-    app.kubernetes.io/name: nginx
-    app.kubernetes.io/instance: nginx
