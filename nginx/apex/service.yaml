@@ -13,7 +13,6 @@ spec:
     app.kubernetes.io/name: nginx
     app.kubernetes.io/instance: nginx
   ports:
-  - port: 8080
-    targetPort: 80
-    nodePort: 30080
-    protocol: TCP
+    - port: 80
+      nodePort: 32000
+      targetPort: 80
