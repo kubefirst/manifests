@@ -34,7 +34,7 @@ spec:
               containerPort: 8080
           volumeMounts:
             - name: nginx-index-file
-              mountPath: /usr/share/nginx/html/
+              mountPath: /usr/share/nginx/html
           livenessProbe:
             failureThreshold: 6
             initialDelaySeconds: 30
