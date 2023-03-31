@@ -7,12 +7,13 @@ metadata:
     app.kubernetes.io/name: nginx
     app.kubernetes.io/instance: nginx
 spec:
-  type: ClusterIP
+  type: NodePort
   sessionAffinity: None
   selector:
     app.kubernetes.io/name: nginx
     app.kubernetes.io/instance: nginx
   ports:
-    - name: http
-      port: 80
-      targetPort: http
+  - port: 8080
+    targetPort: 80
+    nodePort: 30080
+    protocol: TCP
