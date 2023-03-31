@@ -5,8 +5,6 @@ namespace: default
 resources:
   - deployment.yaml
   - service.yaml
-
-patchesStrategicMerge:
   - config-map.yaml
 
 generatorOptions:
