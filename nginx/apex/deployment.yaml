@@ -57,4 +57,4 @@ spec:
       volumes:
       - name: nginx-index-file
         configMap:
-          name: nginx-apex-cm
+          name: index-html-configmap

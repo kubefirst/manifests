@@ -14,6 +14,6 @@ spec:
     app.kubernetes.io/instance: nginx
   ports:
     - name: http
-      port: 8080
+      port: 80
       nodePort: 32000
       targetPort: http

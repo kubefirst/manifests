@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: nginx-apex-cm
+  name: index-html-configmap
   namespace: default
 data:
   index.html: |
