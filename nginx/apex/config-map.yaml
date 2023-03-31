@@ -85,19 +85,26 @@ data:
             </p>
             <p>
               You can adjust this site in your new
-              <a href="" onClick="redirect()">kubefirst gitops repository</a>.
+              <a href="" onClick="redirectToGitops()">kubefirst gitops repository</a>.
             </p>
-            <p><a href="">Learn more about</a> this apex site.</p>
+            <p><a href="" onClick="redirectToDocs()">Learn more about</a> this apex site.</p>
           </div>
         </div>
         <script>
-          function redirect() {
-            const gitProvider = '<GIT_PROVIDER>';
-            const githubOwner = '<GITHUB_OWNER>';
-            const gitlabOwner = '<GITLAB_OWNER>';
-
+          const gitProvider = '<GIT_PROVIDER>';
+          const githubOwner = '<GITHUB_OWNER>';
+          const gitlabOwner = '<GITLAB_OWNER>';
+          function redirectToGitops() {
             window.open(`https://${gitProvider}.com/${githubOwner || gitlabOwner}/gitops`, '_blank');
+          }
+
+          function redirectToDocs() {
+            window.open(
+              `https://docs.kubefirst.io/kubefirst/civo/${gitProvider}/user-creation`,
+              '_blank',
+            );
           }
         </script>
       </body>
     </html>
+
