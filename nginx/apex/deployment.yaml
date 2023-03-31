@@ -28,10 +28,10 @@ spec:
             - name: BITNAMI_DEBUG
               value: "false"
             - name: NGINX_HTTP_PORT_NUMBER
-              value: "8080"
+              value: "80"
           ports:
             - name: http
-              containerPort: 8080
+              containerPort: 80
           volumeMounts:
             - name: nginx-index-file
               mountPath: /usr/share/nginx/html/
