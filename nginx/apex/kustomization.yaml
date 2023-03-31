@@ -3,9 +3,8 @@ kind: Kustomization
 namespace: default
 
 resources:
-  - deployment.yaml
-  - service.yaml
-  - config-map.yaml
+- deployment.yaml
+- service.yaml
 
 generatorOptions:
   disableNameSuffixHash: true
