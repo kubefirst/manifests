@@ -7,7 +7,7 @@ namespace: argocd
 resources:
   - github.com:argoproj/argo-cd.git/manifests/ha/cluster-install?ref=v2.6.4
   - argocd-namespace.yaml
-  - argocd-ui-ingress.yaml
+  # - argocd-ui-ingress.yaml
 
 patchesStrategicMerge:
   - argocd-cm.yaml
