@@ -7,7 +7,7 @@ data:
   admin.enabled: 'true'
   statusbadge.enabled: 'true'
   users.anonymous.enabled: 'false'
-  server.insecure: 'true'
+  server.insecure: 'false'
   url: 'https://argocd.kubefirst.dev'
   oidc.config: |
     name: Vault
