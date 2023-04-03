@@ -1,27 +1,27 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx
+  name: nginx-apex
   namespace: default
   labels:
-    app.kubernetes.io/name: nginx
-    app.kubernetes.io/instance: nginx
+    app.kubernetes.io/name: nginx-apex
+    app.kubernetes.io/instance: nginx-apex
 spec:
   replicas: 1
   strategy:
     type: RollingUpdate
   selector:
     matchLabels:
-      app.kubernetes.io/name: nginx
-      app.kubernetes.io/instance: nginx
+      app.kubernetes.io/name: nginx-apex
+      app.kubernetes.io/instance: nginx-apex
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: nginx
-        app.kubernetes.io/instance: nginx
+        app.kubernetes.io/name: nginx-apex
+        app.kubernetes.io/instance: nginx-apex
     spec:
       containers:
-      - name: nginx
+      - name: nginx-apex
         image: nginx
         ports:
         - containerPort: 80
