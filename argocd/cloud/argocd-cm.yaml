@@ -7,8 +7,7 @@ data:
   admin.enabled: 'true'
   statusbadge.enabled: 'true'
   users.anonymous.enabled: 'false'
-  server.insecure: 'false'
-  url: 'https://argocd.kubefirst.dev'
+  url: 'https://argocd.k-ray.space'
   oidc.config: |
     name: Vault
     issuer: https://vault.kubefirst.dev/v1/identity/oidc/provider/kubefirst
