@@ -4,14 +4,14 @@ metadata:
   name: nginx
   namespace: default
   labels:
-    app.kubernetes.io/name: nginx
-    app.kubernetes.io/instance: nginx
+    app.kubernetes.io/name: nginx-apex
+    app.kubernetes.io/instance: nginx-apex
 spec:
   type: NodePort
   sessionAffinity: None
   selector:
-    app.kubernetes.io/name: nginx
-    app.kubernetes.io/instance: nginx
+    app.kubernetes.io/name: nginx-apex
+    app.kubernetes.io/instance: nginx-apex
   ports:
     - name: http
       port: 80
