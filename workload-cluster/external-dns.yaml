@@ -1,0 +1,55 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: preprod-external-dns
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+  annotations:
+    argocd.argoproj.io/sync-wave: '10'
+spec:
+  project: preprod
+  sources:
+  - repoURL: https://kubernetes-sigs.github.io/external-dns.git
+    chart: external-dns
+    targetRevision: 1.13.0
+    helm:
+      valueFiles:
+      - $gitopsRepo/registry/staging/components/external-dns/values.yaml
+  - repoURL: https://github.com/your-company-io/gitops.git
+    targetRevision: main # todo make this a tag 
+    ref: gitopsRepo
+  # source:
+  #   repoURL: https://kubernetes-sigs.github.io/external-dns
+  #   targetRevision: 1.13.0
+  #   helm:
+  #     releaseName: external-dns
+  #     # todo overlay 
+  #     values: |
+  #       image:
+  #         repository: registry.k8s.io/external-dns/external-dns
+  #         tag: "v0.13.2"
+  #       serviceAccount:
+  #         create: true
+  #         name: external-dns
+  #       provider: civo
+  #       sources:
+  #       - ingress
+  #       domainFilters: 
+  #       - your-company.io
+  #       env:
+  #       - name: CIVO_TOKEN
+  #         valueFrom:
+  #           secretKeyRef:
+  #             name: civo-creds
+  #             key: civo-token
+  #   chart: external-dns
+  destination:
+    server: https://212.2.244.151:6443 # todo replace
+    namespace: external-dns
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

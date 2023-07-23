@@ -1,0 +1,19 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: argocd
+
+resources:
+# todo need to tag this repository
+- github.com:kubefirst/manifests.git/workload-clusters?ref=main
+- cert-issuers.yaml
+- cert-manager.yaml
+- cluster-secret-store.yaml
+- clusterrolebinding.yaml
+- components
+- development.yaml
+- external-dns.yaml
+- external-secrets-operator.yaml
+- ingress-nginx.yaml
+- registry-preprod.yaml
+- reloader.yml
+- staging.yaml
