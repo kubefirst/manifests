@@ -24,6 +24,12 @@ spec:
           args: ['http', 'atlantis:80']
           ports:
             - containerPort: 4040
+          env:
+          - name: NGROK_AUTHTOKEN
+            valueFrom:
+              secretKeyRef:
+                name: k3d-ngrok
+                key: NGROK_AUTHTOKEN
           resources:
             requests:
               cpu: 200m
